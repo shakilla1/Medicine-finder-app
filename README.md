@@ -66,7 +66,9 @@ https://api.fda.gov/drug/label.json?
 search=openfda.brand_name:Ibuprofen+openfda.generic_name:Ibuprofen&limit=1
 
 Implementation Details
+
 The project is structured as follows:
+
 File Structure
 
 index.html: The main structure of the application, containing the login/register forms
