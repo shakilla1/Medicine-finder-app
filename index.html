@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicine Finder - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Medicine Finder</h2>
+
+    <div id="login-box">
+        <h3>Login</h3>
+
+        <input type="email" id="login-email" placeholder="Email">
+        <input type="password" id="login-password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <p class="error" id="login-error"></p>
+
+        <p>Don't have an account?
+            <a href="#" onclick="showSignup()">Create Account</a>
+        </p>
+    </div>
+
+    
+    <div id="signup-box" style="display:none;">
+        <h3>Create Account</h3>
+
+        <input type="text" id="signup-name" placeholder="Full Name">
+        <input type="email" id="signup-email" placeholder="Email">
+
+       
+        <select id="signup-gender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <input type="password" id="signup-password" placeholder="Password">
+
+        <button onclick="signup()">Create Account</button>
+
+        <p class="error" id="signup-error"></p>
+
+        <p>Already have an account?
+            <a href="#" onclick="showLogin()">Login</a>
+        </p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
