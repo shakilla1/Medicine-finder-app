@@ -53,9 +53,13 @@ API Used
 This project uses the openFDA API to retrieve drug labeling information.
 
 Provider: openFDA
+
 Base URL: https://api.fda.gov
+
 Endpoint: /drug/label.json
+
 Query Method: the app searches for the medicine details
+
 Example:
 
 https://api.fda.gov/drug/label.json?
