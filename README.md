@@ -44,7 +44,9 @@ Option 2: Local Server (optional)
 For the best experience (and to avoid potential CORS issues with some browsers), it is recommended to run the project using a simple local HTTP server.
 
 If you have Python installed run this:
+
 python -m http.server 8000
+
 Then open http://localhost:8000 in your browser.
 
 API Used
