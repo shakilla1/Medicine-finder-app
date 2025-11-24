@@ -79,3 +79,70 @@ script.js: Contains the core application logic: Login logic and search medicine 
 
 style.css: Handles the visual styling, layout, and responsiveness of the application.
 
+Deployment steps 
+1. ssh into my web-01 and web 02 servers
+Inside BOTH servers run:
+sudo apt update
+sudo apt install git nginx -y
+cd /var/www/
+I cloned my github repo
+
+2. Configure Nginx on Both Web Servers
+
+Open the default Nginx config:
+
+sudo nano /etc/nginx/sites-available/default
+
+Save and exit.
+
+Restart Nginx:
+
+sudo service nginx restart
+
+
+Test Web-01:
+
+http://3.83.9.218
+
+
+Test Web-02:
+
+http://54.161.96.54
+
+
+Both should show my Medicine Finder app.
+
+ 3. Configure the Load Balancer (LB-01)
+
+SSH to LB-01:
+
+ssh ubuntu@52.87.247.223
+
+
+Install Nginx:
+
+sudo apt update
+sudo apt install nginx -y
+
+
+Edit LB config to change upstream and my root to point to my app 
+
+sudo nano /etc/nginx/sites-available/default
+
+
+Restart LB Nginx:
+
+sudo service nginx restart
+
+ 4. Test the Load Balancer
+
+Open  LB-01 IP in a browser:
+
+http://52.87.247.223
+
+upstream medicine_app {
+    server 3.83.9.218;    
+    server 54.161.96.54;  
+}
+
+
