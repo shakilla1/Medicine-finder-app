@@ -1,3 +1,4 @@
+video link: https://www.loom.com/share/c5412fdfdb984158ac4db94b8e730c2f
 Medicine Finder
 
 Medicine Finder is a clean and simple web application that allows users to search for real medicine information using the openFDA public API.
