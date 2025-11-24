@@ -81,13 +81,18 @@ style.css: Handles the visual styling, layout, and responsiveness of the applica
 
 Deployment steps 
 1. ssh into my web-01 and web 02 servers
+   
 Inside BOTH servers run:
+
 sudo apt update
+
 sudo apt install git nginx -y
+
 cd /var/www/
+
 I cloned my github repo
 
-2. Configure Nginx on Both Web Servers
+4. Configure Nginx on Both Web Servers
 
 Open the default Nginx config:
 
@@ -144,5 +149,26 @@ upstream medicine_app {
     server 3.83.9.218;    
     server 54.161.96.54;  
 }
+
+Configure HAProxy on Load Balancer
+
+1. Install HAProxy:
+
+sudo apt-get update
+sudo apt-get install haproxy
+
+3. Edit HAProxy configuration:
+
+sudo nano /etc/haproxy/haproxy.cfg
+
+Test the HAProxy configuration and start the service:
+
+http://52.87.247.223
+
+sudo haproxy -f /etc/haproxy/haproxy.cfg -c
+
+sudo systemctl restart haproxy
+
+4. The last step was to enable HTTPS, but because I don't have a domain name to get a valid certificate, it didn't work
 
 
