@@ -1,8 +1,8 @@
 video link: https://www.loom.com/share/dbd70b89aace450cb59cd82f0e293103
 Medicine Finder
 
-Medicine Finder is a clean and simple web application that allows users to search for real medicine information using the openFDA public API.
-It utilizes the openFDA API to fetch real-time drug labeling information and provides a user-friendly interface for viewing medicine details such as brand name, generic name, purpose, usage and indications.
+Medicine Finder is a clean and simple web application that enables users to search for accurate medicine information using the openFDA public API.
+It utilizes the openFDA API to fetch real-time drug labeling information, and it provides a user-friendly interface for viewing medicine details, including brand name, generic name, purpose, usage, and indications.
 
  Features
 A. Medicine Search
@@ -36,15 +36,15 @@ C. Responsive Design: Works on desktop and mobile devices.
 
 How to Activate
 
-This is a static web application built with HTML, CSS, and JavaScript. No complex build process or backend server is required.
+This is a static web application built with HTML, CSS, and vanilla JavaScript. 
 
 Option 1: Direct Open
-Simply double-click the index.html file to open it in your default web browser.
+Just double-click the index.html file to open it in your default web browser.
 
 Option 2: Local Server (optional)
 For the best experience (and to avoid potential CORS issues with some browsers), it is recommended to run the project using a simple local HTTP server.
 
-If you have Python installed run this:
+If you have Python installed, run this:
 
 python -m http.server 8000
 
@@ -82,6 +82,8 @@ style.css: Handles the visual styling, layout, and responsiveness of the applica
 
 Deployment steps 
 1. ssh into my web-01 and web 02 servers
+   
+using: ssh -i ~/.ssh/school ubuntu@"Ip address"
    
 Inside BOTH servers run:
 
@@ -122,7 +124,7 @@ Both should show my Medicine Finder app.
 
 SSH to LB-01:
 
-ssh ubuntu@52.87.247.223
+ssh -i ~/.ssh/school ubuntu@52.87.247.223
 
 
 Install Nginx:
@@ -152,6 +154,8 @@ upstream medicine_app {
 }
 
 Configure HAProxy on Load Balancer
+
+First disable nginx to avoid conflict between nginx and laodbalancer because they cannot  both listen on port 80/443
 
 1. Install HAProxy:
 
