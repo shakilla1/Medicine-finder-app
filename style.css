@@ -1,9 +1,15 @@
 body {
     font-family: Arial, sans-serif;
-    background: #fff; /* White background */
-    color: #000; /* Black text */
+    background: #fff; 
+    color: #000; 
     margin: 0;
     padding: 0;
+}
+
+body.dashboard-bg {
+    background: url("https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg") 
+                no-repeat center center fixed;
+    background-size: cover;
 }
 
 .container, .dashboard-container {
@@ -19,7 +25,7 @@ body {
 input, button {
     width: 90%;
     padding: 10px;
-    margin: 10px 0; /* vertical stacking */
+    margin: 10px 0; 
     border: 1px solid #aaa;
     border-radius: 5px;
 }
@@ -68,4 +74,3 @@ button:hover {
     border-radius: 6px;
     text-align: left;
 }
-
