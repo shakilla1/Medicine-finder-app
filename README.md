@@ -1,10 +1,12 @@
 video link: https://www.loom.com/share/dbd70b89aace450cb59cd82f0e293103
+
 Medicine Finder
 
 Medicine Finder is a clean and simple web application that enables users to search for accurate medicine information using the openFDA public API.
 It utilizes the openFDA API to fetch real-time drug labeling information, and it provides a user-friendly interface for viewing medicine details, including brand name, generic name, purpose, usage, and indications.
 
  Features
+ 
 A. Medicine Search
 
 Users can enter any medicine name (e.g., Ibuprofen, aspirin, Antacid).
@@ -148,32 +150,72 @@ Open  LB-01 IP in a browser:
 
 http://52.87.247.223
 
-upstream medicine_app {
-    server 3.83.9.218;    
-    server 54.161.96.54;  
-}
-
 Configure HAProxy on Load Balancer
 
 First disable nginx to avoid conflict between nginx and laodbalancer because they cannot  both listen on port 80/443
 
 1. Install HAProxy:
 
-sudo apt-get update
-sudo apt-get install haproxy
+sudo apt update
 
-3. Edit HAProxy configuration:
+sudo apt install haproxy -y
+
+2. Enable HAProxy service:
+
+sudo systemctl enable haproxy
+
+sudo systemctl start haproxy
+
+3. Check HAProxy status:
+
+sudo systemctl status haproxy
+
+4.  Configure HAProxy
+
+Edit HAProxy configuration file:
 
 sudo nano /etc/haproxy/haproxy.cfg
 
-Test the HAProxy configuration and start the service:
+Add Self-Signed Certificate (Optional HTTPS)
+
+sudo mkdir -p /etc/haproxy/certs
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    -keyout /etc/haproxy/certs/selfsigned.pem \
+    -out /etc/haproxy/certs/selfsigned.pem
+
+Then, in generating this certificate, I added my IP address for the load balancer on CN because I don't have a domain name
+
+N.B: 
+HTTPS will work with a self-signed certificate; browsers will show warning when accessing HTTPS via IP.
+
+5. Test Backend Servers
+
+Make sure the backend servers are reachable from the load balancer:
+
+curl http://3.83.9.218
+
+curl http://54.161.96.54
+
+You should see the Medicine Finder HTML page.
+
+6. Restart HAProxy
+ 
+sudo systemctl restart haproxy
+
+sudo systemctl status haproxy
+
+7. Test the Load Balancer
+
+Open your browser and visit:
 
 http://52.87.247.223
 
-sudo haproxy -f /etc/haproxy/haproxy.cfg -c
+You should see the Medicine Finder login page
 
-sudo systemctl restart haproxy
+Requests are automatically load-balanced between backend servers
 
-4. The last step was to enable HTTPS, but because I don't have a domain name to get a valid certificate, it didn't work
+HTTP is fully functional and load-balanced.
+
+8. The last step was to enable HTTPS, but because I don't have a domain name to get a valid certificate, it didn't work
 
 
