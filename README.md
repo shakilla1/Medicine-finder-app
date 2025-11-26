@@ -5,7 +5,7 @@ Medicine Finder
 Medicine Finder is a clean and simple web application that enables users to search for accurate medicine information using the openFDA public API.
 It utilizes the openFDA API to fetch real-time drug labeling information, and it provides a user-friendly interface for viewing medicine details, including brand name, generic name, purpose, usage, and indications.
 
- Features
+Features
  
 A. Medicine Search
 
@@ -83,17 +83,18 @@ script.js: Contains the core application logic: Login logic and search medicine 
 style.css: Handles the visual styling, layout, and responsiveness of the application.
 
 Deployment steps 
+
 1. ssh into my web-01 and web 02 servers
    
 using: ssh -i ~/.ssh/school ubuntu@"Ip address"
    
-Inside BOTH servers run:
+2. Inside BOTH servers run:
 
 sudo apt update
 
 sudo apt install git nginx -y
 
-cd /var/www/
+3. cd /var/www/
 
 I cloned my github repo
 
@@ -122,7 +123,7 @@ http://54.161.96.54
 
 Both should show my Medicine Finder app.
 
- 3. Configure the Load Balancer (LB-01)
+4. Configure the Load Balancer (LB-01)
 
 SSH to LB-01:
 
@@ -144,7 +145,7 @@ Restart LB Nginx:
 
 sudo service nginx restart
 
- 4. Test the Load Balancer
+5. Test the Load Balancer
 
 Open  LB-01 IP in a browser:
 
