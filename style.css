@@ -12,6 +12,11 @@ body.dashboard-bg {
     background-size: cover;
 }
 
+body.login-bg {
+    background: url("https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
 .container, .dashboard-container {
     width: 350px;
     margin: 50px auto;
