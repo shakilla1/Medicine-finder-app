@@ -1,4 +1,4 @@
-video link: https://www.loom.com/share/ea82ef3f5c744cc5b969cee9f5fddb69
+video link: https://www.youtube.com/watch?v=s1RAyjW83Uw
 
 
 Medicine Finder
